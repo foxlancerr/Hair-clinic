@@ -1,0 +1,31 @@
+name: Deploy to Vercel
+
+on:
+  push:
+    branches:
+      - main
+    tags:
+      - 'v*'
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Install Vercel CLI
+        run: npm install -g vercel
+
+      - name: Pull Vercel Environment Info
+        run: vercel pull --yes --environment=production --token=${{ secrets.VERCEL_TOKEN }}
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Build Project
+        run: npm run build
+
+      - name: Deploy to Production
+        run: vercel --prod --token=${{ secrets.VERCEL_TOKEN }}
