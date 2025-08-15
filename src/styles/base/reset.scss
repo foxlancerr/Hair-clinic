@@ -1,0 +1,82 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* Remove default list styles */
+ul,
+ol {
+  list-style: none;
+}
+
+/* Reset anchor tags */
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* Reset images */
+img,
+picture {
+  max-width: 100%;
+  display: block;
+}
+
+/* Reset form elements */
+button,
+input,
+textarea,
+select {
+  font-family: inherit;
+  font-size: inherit;
+  color: inherit;
+  background: none;
+  border: none;
+  outline: none;
+}
+
+/* Reset headings and paragraphs */
+h1, h2, h3, h4, h5, h6,
+p {
+  margin: 0;
+  font-weight: normal;
+}
+
+/* Reset tables */
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+/* Root font and line-height */
+html {
+  font-size: 100%; /* 16px default */
+  line-height: 1.5;
+  scroll-behavior: smooth;
+}
+
+/* Body defaults */
+body {
+  font-family: 'Inter', sans-serif; // replace with your preferred font
+  color: #333;
+  background-color: black;
+  color: white;
+  min-height: 100vh;
+}
+
+/* Utility to remove outline only visually, keep accessibility */
+:focus {
+  outline: 2px solid transparent;
+  outline-offset: 2px;
+}
+
+/* Optional: make form elements inherit box-sizing */
+input,
+textarea,
+button,
+select {
+  box-sizing: border-box;
+}
