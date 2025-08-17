@@ -1,48 +1,53 @@
-import React from "react";
 import { LuArrowUpRight } from "react-icons/lu";
-import { motion } from "framer-motion";
+import { motion, type Variants, type Transition } from "framer-motion";
 
-// Animation Variants
-const fadeInUp = {
+// ✅ Animation Variants (all typed)
+const fadeInUp: Variants = {
   hidden: { opacity: 0, y: 30 },
-  show: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } },
+  show: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.6, ease: "easeOut" },
+  },
 };
 
-const fadeInLeft = {
-  hidden: { opacity: 0, x: -40 },
-  show: { opacity: 1, x: 0, transition: { duration: 0.6, ease: "easeOut" } },
-};
-
-const fadeInRight = {
+const fadeInRight: Variants = {
   hidden: { opacity: 0, x: 40 },
-  show: { opacity: 1, x: 0, transition: { duration: 0.6, ease: "easeOut" } },
+  show: {
+    opacity: 1,
+    x: 0,
+    transition: { duration: 0.6, ease: "easeOut" },
+  },
 };
 
-// Parent variants
-const container = {
+// ✅ Parent variants
+const container: Variants = {
   hidden: { opacity: 0 },
   show: {
     opacity: 1,
     transition: {
-      staggerChildren: 0.3, // delay between each child
-      delayChildren: 0.5, // optional initial delay
+      staggerChildren: 0.3,
+      delayChildren: 0.5,
     },
   },
 };
 
-// Child variants (applied to each absolute item)
-const item = {
+// ✅ Reusable spring transition
+const springTransition: Transition = {
+  type: "spring",
+  stiffness: 500,
+  damping: 20,
+  mass: 0.8,
+};
+
+// ✅ Child variants (typed)
+const item: Variants = {
   hidden: { opacity: 0, y: 30, scale: 0.95 },
   show: {
     opacity: 1,
     y: 0,
     scale: 1,
-    transition: {
-      type: "spring",
-      stiffness: 500, // higher = snappier
-      damping: 20, // lower = more bounce
-      mass: 0.8, // adjust weight of motion
-    },
+    transition: springTransition,
   },
 };
 
@@ -57,7 +62,7 @@ function HeroSection() {
         className="flex flex-col gap-4 pt-8 items-start sm:bg-white bg-yellow-400 custom-container mb-4 h-full"
       >
         <motion.button
-          variants={item}
+          variants={item} // ✅ no `as any`
           className="hidden sm:block text-xl uppercase text-yellow-400 px-4 py-2 bg-black rounded-md"
         >
           #FIXMYHAIR
@@ -87,7 +92,7 @@ function HeroSection() {
       <motion.div
         initial="hidden"
         animate="show"
-        transition={{ staggerChildren: 0.2 }}
+        variants={container} // ✅ use same container for stagger
         className="flex justify-center items-end bg-[auto_165px] sm:bg-[auto_auto]"
         style={{
           backgroundImage: "url('./assets/images/hero/grid.png')",

@@ -1,17 +1,29 @@
 import { RiMenu3Fill } from "react-icons/ri";
 import { LuArrowUpRight } from "react-icons/lu";
-import { motion } from "framer-motion";
-import { useState } from "react";
+import { motion, type Variants } from "framer-motion";
+import { useState, type MouseEvent } from "react";
+
+type NavItem = {
+  name: string;
+  id: string;
+};
+
+type MousePosition = {
+  x: number;
+  y: number;
+};
 
 function Header() {
-  const [hoveredItem, setHoveredItem] = useState(null);
-  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
+  const [hoveredItem, setHoveredItem] = useState<string | null>(null);
+  const [mousePosition, setMousePosition] = useState<MousePosition>({
+    x: 0,
+    y: 0,
+  });
 
-  const navItemVariants = {
+  const navItemVariants: Variants = {
     initial: {
-      display: "block",
-      width: "8px",
-      height: "8px",
+      width: 8,
+      height: 8,
       borderRadius: "100%",
       background: "black",
       left: "50%",
@@ -22,8 +34,8 @@ function Header() {
       opacity: 0,
     },
     hover: {
-      width: "24px",
-      height: "24px",
+      width: 24,
+      height: 24,
       borderRadius: "100%",
       background: "yellow",
       scale: 1.2,
@@ -35,13 +47,13 @@ function Header() {
     },
   };
 
-  const navItems = [
+  const navItems: NavItem[] = [
     { name: "Home", id: "home" },
     { name: "About Us", id: "about" },
     { name: "Contact Us", id: "contact" },
   ];
 
-  const handleMouseMove = (e: any, itemId: any) => {
+  const handleMouseMove = (e: MouseEvent<HTMLLIElement>, itemId: string) => {
     const rect = e.currentTarget.getBoundingClientRect();
     const x = e.clientX - rect.left;
     const y = e.clientY - rect.top;
@@ -50,7 +62,7 @@ function Header() {
     setHoveredItem(itemId);
   };
 
-  const handleMouseEnter = (itemId) => {
+  const handleMouseEnter = (itemId: string) => {
     setHoveredItem(itemId);
   };
 
@@ -83,7 +95,7 @@ function Header() {
 
       {/* desktop screen */}
       <div className="ml-[72px] hidden sm:flex items-stretch border-b border-b-black mr-auto relative">
-        <div className="flex pr-16 border-r  border-r-black items-center">
+        <div className="flex pr-16 border-r border-r-black items-center">
           <motion.img
             src="./assets/images/logo.svg"
             alt="main-logo"
@@ -98,19 +110,19 @@ function Header() {
           {navItems.map((item) => (
             <motion.li
               key={item.id}
-              className="relative cursor-pointer px-4 py-2 "
+              className="relative cursor-pointer px-4 py-2"
               onMouseMove={(e) => handleMouseMove(e, item.id)}
               onMouseEnter={() => handleMouseEnter(item.id)}
               onMouseLeave={handleMouseLeave}
               initial="initial"
               animate={hoveredItem === item.id ? "hover" : "initial"}
             >
-              {/* Text with color animation */}
+              {/* Text */}
               <motion.span className="relative z-10 select-none transition-colors duration-200">
                 {item.name}
               </motion.span>
 
-              {/* Magnetic circle that follows mouse */}
+              {/* Magnetic circle */}
               <motion.span
                 animate={
                   hoveredItem === item.id
@@ -121,7 +133,7 @@ function Header() {
                         x: "-50%",
                         y: "-50%",
                       }
-                    : navItemVariants.initial
+                    : (navItemVariants.initial as any)
                 }
                 transition={{
                   type: "spring",
@@ -132,7 +144,7 @@ function Header() {
                 className="absolute z-0 pointer-events-none"
               />
 
-              {/* Subtle background glow effect */}
+              {/* Background glow */}
               {hoveredItem === item.id && (
                 <motion.div
                   initial={{ opacity: 0, scale: 0.8 }}
@@ -146,7 +158,7 @@ function Header() {
           ))}
         </ul>
 
-        {/* Enhanced Button */}
+        {/* Button */}
         <motion.button
           className="bg-black rounded-lg text-white px-6 py-4 flex gap-3 items-center ml-auto relative overflow-hidden shadow-lg z-10"
           whileHover={{
@@ -154,33 +166,22 @@ function Header() {
             boxShadow: "0 10px 25px rgba(0, 0, 0, 0.2)",
             transition: { duration: 0.3 },
           }}
-          whileTap={{
-            scale: 0.98,
-            transition: { duration: 0.1 },
-          }}
+          whileTap={{ scale: 0.98, transition: { duration: 0.1 } }}
         >
-          {/* Button overlay */}
+          {/* Overlay */}
           <motion.div
             className="absolute inset-0 bg-white opacity-0"
-            whileHover={{
-              opacity: 0.1,
-              transition: { duration: 0.3 },
-            }}
+            whileHover={{ opacity: 0.1, transition: { duration: 0.3 } }}
           />
-
-          {/* Button text */}
+          {/* Text */}
           <motion.span
             className="uppercase relative z-10 font-semibold tracking-wide"
             initial={{ x: 0 }}
-            whileHover={{
-              x: -2,
-              transition: { duration: 0.3 },
-            }}
+            whileHover={{ x: -2, transition: { duration: 0.3 } }}
           >
             Book Now
           </motion.span>
-
-          {/* Animated arrow */}
+          {/* Arrow */}
           <motion.span
             className="relative z-10"
             initial={{ rotate: 0, scale: 1 }}
@@ -193,8 +194,9 @@ function Header() {
             <LuArrowUpRight size={24} />
           </motion.span>
         </motion.button>
-        {/* yellow backgound color */}
-        <div className="w-[53.2%] h-full absolute top-0 right-0 bg-yellow-400"></div>
+
+        {/* yellow background color */}
+        <div className="w-[53.2%] h-full absolute top-0 right-0 bg-yellow-400" />
       </div>
     </nav>
   );
