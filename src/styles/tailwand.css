@@ -1,0 +1,26 @@
+@import "tailwindcss";
+
+@layer components {
+  .custom-container {
+    @apply w-full mx-auto;
+    max-width: 100%;
+     padding: 0px 24px;
+    @media (min-width: 480px) {
+      padding: 0px 36px;
+    }
+    @media (min-width: 640px) {
+      max-width: 640px;
+      padding: 0px 48px;
+    }
+
+    @media (min-width: 1024px) {
+      max-width: 1024px;
+      padding: 0px 72px;
+    }
+
+    @media (min-width: 1280px) {
+      max-width: 1280px;
+      padding: 0px 72px;
+    }
+  }
+}
