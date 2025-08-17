@@ -64,7 +64,7 @@ function Header() {
   return (
     <nav className="relative header-container">
       {/* Mobile screen */}
-      <div className="container flex mx-auto justify-between items-center sm:hidden">
+      <div className="custom-container flex mx-auto justify-between items-center sm:hidden">
         <motion.img
           src="./assets/images/logo.svg"
           alt="main-logo"
@@ -84,7 +84,7 @@ function Header() {
       </div>
 
       {/* desktop screen */}
-      <div className="hidden sm:flex mx-auto items-stretch  ml-[72px] border-b border-b-black">
+      <div className="ml-[72px] hidden sm:flex items-stretch border-b border-b-black mr-auto ">
         <div className="flex pr-16 border-r  border-r-black items-center">
           <motion.img
             src="./assets/images/logo.svg"
