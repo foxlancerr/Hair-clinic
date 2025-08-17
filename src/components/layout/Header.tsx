@@ -15,11 +15,11 @@ function Header() {
       borderRadius: "100%",
       background: "black",
       left: "50%",
-      bottom:"0px",
+      bottom: "0px",
       x: "-50%",
       y: "-50%",
       scale: 1,
-      opacity:0,
+      opacity: 0,
     },
     hover: {
       width: "24px",
@@ -27,7 +27,7 @@ function Header() {
       borderRadius: "100%",
       background: "yellow",
       scale: 1.2,
-      opacity:1,
+      opacity: 1,
       transition: {
         duration: 0.3,
         ease: "easeOut",
@@ -35,19 +35,17 @@ function Header() {
     },
   };
 
-
-
   const navItems = [
     { name: "Home", id: "home" },
     { name: "About Us", id: "about" },
     { name: "Contact Us", id: "contact" },
   ];
 
-  const handleMouseMove = (e:any, itemId:any) => {
+  const handleMouseMove = (e: any, itemId: any) => {
     const rect = e.currentTarget.getBoundingClientRect();
     const x = e.clientX - rect.left;
     const y = e.clientY - rect.top;
-    
+
     setMousePosition({ x, y });
     setHoveredItem(itemId);
   };
@@ -64,7 +62,7 @@ function Header() {
   return (
     <nav className="relative header-container">
       {/* Mobile screen */}
-      <div className="custom-container flex mx-auto justify-between items-center sm:hidden">
+      <div className="custom-container flex mx-auto my-[12px] justify-between items-center sm:hidden">
         <motion.img
           src="./assets/images/logo.svg"
           alt="main-logo"
@@ -73,7 +71,7 @@ function Header() {
           whileTap={{ scale: 0.95 }}
           transition={{ duration: 0.2 }}
         />
-        <motion.span 
+        <motion.span
           className="nav-menu cursor-pointer block"
           whileHover={{ rotate: 180, scale: 1.1 }}
           whileTap={{ scale: 0.9 }}
@@ -84,7 +82,7 @@ function Header() {
       </div>
 
       {/* desktop screen */}
-      <div className="ml-[72px] hidden sm:flex items-stretch border-b border-b-black mr-auto ">
+      <div className="ml-[72px] hidden sm:flex items-stretch border-b border-b-black mr-auto relative">
         <div className="flex pr-16 border-r  border-r-black items-center">
           <motion.img
             src="./assets/images/logo.svg"
@@ -108,10 +106,7 @@ function Header() {
               animate={hoveredItem === item.id ? "hover" : "initial"}
             >
               {/* Text with color animation */}
-              <motion.span 
-                className="relative z-10 select-none transition-colors duration-200"
-           
-              >
+              <motion.span className="relative z-10 select-none transition-colors duration-200">
                 {item.name}
               </motion.span>
 
@@ -153,7 +148,7 @@ function Header() {
 
         {/* Enhanced Button */}
         <motion.button
-          className="bg-black rounded-lg text-white px-6 py-4 flex gap-3 items-center ml-auto relative overflow-hidden shadow-lg"
+          className="bg-black rounded-lg text-white px-6 py-4 flex gap-3 items-center ml-auto relative overflow-hidden shadow-lg z-10"
           whileHover={{
             scale: 1.05,
             boxShadow: "0 10px 25px rgba(0, 0, 0, 0.2)",
@@ -174,12 +169,12 @@ function Header() {
           />
 
           {/* Button text */}
-          <motion.span 
+          <motion.span
             className="uppercase relative z-10 font-semibold tracking-wide"
             initial={{ x: 0 }}
-            whileHover={{ 
+            whileHover={{
               x: -2,
-              transition: { duration: 0.3 }
+              transition: { duration: 0.3 },
             }}
           >
             Book Now
@@ -198,6 +193,8 @@ function Header() {
             <LuArrowUpRight size={24} />
           </motion.span>
         </motion.button>
+        {/* yellow backgound color */}
+        <div className="w-[53.2%] h-full absolute top-0 right-0 bg-yellow-400"></div>
       </div>
     </nav>
   );

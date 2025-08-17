@@ -6,7 +6,7 @@
     max-width: 100%;
      padding: 0px 24px;
     @media (min-width: 480px) {
-      padding: 36px;
+      padding: 0px 36px;
     }
     @media (min-width: 640px) {
       max-width: 640px;
