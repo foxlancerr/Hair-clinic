@@ -1,5 +1,7 @@
 import { motion, type Variants } from "framer-motion";
 import BoxShadowNode from "../../base/BoxShadowNode";
+import HairButton from "../../base/HairButton";
+import HairText from "../../base/HairText";
 
 interface SergionCardItem {
   key: number;
@@ -36,7 +38,7 @@ const SergionCardList: SergionCardItem[] = [
 ];
 
 // ✅ Container for stagger
-const containerVariants:Variants = {
+const containerVariants: Variants = {
   hidden: { opacity: 1 },
   visible: {
     opacity: 1,
@@ -48,7 +50,7 @@ const containerVariants:Variants = {
 };
 
 // ✅ Card entrance animation
-const cardVariants:Variants = {
+const cardVariants: Variants = {
   hidden: { opacity: 0, y: 60, scale: 0.8 },
   visible: {
     opacity: 1,
@@ -63,7 +65,7 @@ const cardVariants:Variants = {
 };
 
 // ✅ Hover animations
-const parentHoverVariants:Variants = {
+const parentHoverVariants: Variants = {
   rest: { scale: 1 },
   hover: {
     scale: 1.05,
@@ -71,7 +73,7 @@ const parentHoverVariants:Variants = {
   },
 };
 
-const childHoverVariants:Variants = {
+const childHoverVariants: Variants = {
   rest: { scale: 1 },
   hover: {
     scale: 0.9,
@@ -106,10 +108,16 @@ function SergionCard() {
                 rounded="2xl"
               >
                 <div className="flex flex-col gap-3 p-4 text-center">
-                  <button className="text-md uppercase text-primary py-2 px-3 bg-secondary rounded-lg">
+                  <HairButton
+                    fontFamily="norwester"
+                    fontSize="large"
+                    color="primary"
+                    className="w-full"
+                  >
                     {card.buttonText}
-                  </button>
-                  <p className="text-sm text-gray-700">{card.description}</p>
+                  </HairButton>
+                  <HairText fontSize="normal">{card.description}</HairText>
+
                   <motion.div
                     className="flex justify-center items-center gap-1 bg-gradient-to-r from-[#FBF1A3] to-primary p-[5px] rounded-lg"
                     variants={childHoverVariants}
@@ -119,9 +127,13 @@ function SergionCard() {
                       src={card.rewardImage}
                       alt={card.rewardDescription}
                     />
-                    <p className="text-xs font-medium">
+                    <HairText
+                      fontFamily="opensauce"
+                      fontWeight="bold"
+                      fontSize="medium"
+                    >
                       {card.rewardDescription}
-                    </p>
+                    </HairText>
                   </motion.div>
                 </div>
               </BoxShadowNode>
@@ -137,16 +149,20 @@ function SergionCard() {
         initial="hidden"
         animate="visible"
       >
-        {SergionCardList.map((card,index: number) => (
+        {SergionCardList.map((card, index: number) => (
           <motion.div
             key={card.key}
             variants={cardVariants} // ✅ Direct child of container
             initial="rest"
             whileHover="hover"
             animate="rest"
-               style={index === 1 ? {
-              marginTop:'40px'
-            }:{}}
+            style={
+              index === 1
+                ? {
+                    marginTop: "40px",
+                  }
+                : {}
+            }
           >
             <motion.div variants={parentHoverVariants}>
               <BoxShadowNode
@@ -157,10 +173,17 @@ function SergionCard() {
                 rounded="2xl"
               >
                 <div className="flex flex-col gap-3 p-4 text-center max-w-[380px] min-h-[230px] relative">
-                  <button className="text-xl uppercase text-primary w-full py-4 text-center bg-secondary rounded-lg">
+                  <HairButton
+                    fontFamily="norwester"
+                    fontSize="large"
+                    color="primary"
+                    className="w-full"
+                  >
                     {card.buttonText}
-                  </button>
-                  <p className="text-xl text-gray-700">{card.description}</p>
+                  </HairButton>
+
+                  <HairText fontSize="medium">{card.description}</HairText>
+                  {/* <p className="text-xl text-gray-700">{}</p> */}
                   <motion.div
                     className="flex justify-center items-center gap-1 bg-gradient-to-r from-[#FBF1A3] to-primary p-3 rounded-lg absolute -bottom-10 left-1/2 -translate-x-1/2 w-[90%]"
                     variants={childHoverVariants}
@@ -170,9 +193,13 @@ function SergionCard() {
                       src={card.rewardImage}
                       alt={card.rewardDescription}
                     />
-                    <p className="text-xl font-bold">
+                    <HairText
+                      fontFamily="opensauce"
+                      fontWeight="bold"
+                      fontSize="medium"
+                    >
                       {card.rewardDescription}
-                    </p>
+                    </HairText>
                   </motion.div>
                 </div>
               </BoxShadowNode>

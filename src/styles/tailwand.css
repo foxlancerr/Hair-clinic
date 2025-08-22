@@ -8,6 +8,7 @@
   --font-opensaucesans: 'opensauce' ;
   --font-texgyrebonum: 'texgyrebonum'; 
   --font-norwester: 'norwester' ;
+  --font-inter: 'inter' ;
 }
 
 @layer components {

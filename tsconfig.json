@@ -1,6 +1,7 @@
 {
   "compilerOptions": {
-      "target": "ESNext",
+    "target": "ESNext",
+    "erasableSyntaxOnly": false,
     "module": "ESNext",
     "moduleResolution": "Node",
     "types": ["node"],

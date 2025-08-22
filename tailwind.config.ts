@@ -11,6 +11,7 @@ export default {
       fontfamily: {
         opensauce: ["OpenSauceSans", "san-serif"],
         texgyrebonum: ["TexGyreBonum", "san-serif"],
+        inter: ["Inter", "san-serif"],
         norwester: ["Norwester", "san-serif"],
       },
     },

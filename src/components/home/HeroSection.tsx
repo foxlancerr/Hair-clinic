@@ -1,5 +1,10 @@
 import { LuArrowUpRight } from "react-icons/lu";
 import { motion, type Variants, type Transition } from "framer-motion";
+import HairTitle from "../base/HairTitle";
+import HairText from "../base/HairText";
+import HairButton from "../base/HairButton";
+import useDeviceType from "../../hooks/useMobileDevice";
+import { SCREEN_TYPE } from "../../enums/screenType";
 
 // ✅ Animation Variants (all typed)
 const fadeInUp: Variants = {
@@ -65,6 +70,7 @@ const brandList = [
 ];
 
 function HeroSection() {
+  const device = useDeviceType();
   return (
     <>
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 h-[calc(100vh-h-16)] bg-yellow-400">
@@ -73,32 +79,60 @@ function HeroSection() {
           variants={container}
           initial="hidden"
           animate="show"
-          className="flex flex-col gap-4 pt-8 items-start sm:bg-white bg-yellow-400 custom-container mb-4 h-full"
+          className="flex flex-col gap-4 sm:pt-8 pt-0 items-start sm:bg-white bg-yellow-400 custom-container mb-4 h-full"
         >
           <motion.button
             variants={item} // ✅ no `as any`
-            className="hidden sm:block text-xl uppercase text-yellow-400 px-4 py-2 bg-black rounded-md"
           >
-            #FIXMYHAIR
+            <HairButton
+              fontFamily="norwester"
+              fontSize="normal"
+              color="primary"
+              bgColor="secondary"
+              fontWeight="semibold"
+              className="hidden sm:block uppercase"
+            >
+              #FIXMYHAIR
+            </HairButton>
           </motion.button>
 
-          <motion.h1 variants={item} className="font-bold sm:text-7xl text-3xl">
-            World’s <br /> Most Patient
-            <br /> Centred Hair <br />
-            Clinic
+          <motion.h1
+            variants={item}
+
+            // className="font-bold sm:text-7xl text-3xl"
+          >
+            <HairTitle
+              fontWeight="bold"
+              as="h1"
+              fontFamily="opensauce"
+              fontSize={device == SCREEN_TYPE.MOBILE ? "medium" : "xlarge"}
+            >
+              World’s <br /> Most Patient
+              <br /> Centred Hair <br />
+              Clinic
+            </HairTitle>
           </motion.h1>
 
-          <motion.p variants={item} className="">Winner of Multiple Awards 🏆🏆🏆</motion.p>
+          <motion.p variants={item}>
+            <HairText fontFamily="inter">
+              Winner of Multiple Awards 🏆🏆🏆
+            </HairText>
+          </motion.p>
 
-          <motion.div variants={item} className="relative inline-block mt-4">
-            {/* shadow box */}
-            <div className="absolute inset-0 translate-x-[5px] translate-y-[5px] bg-black rounded-md"></div>
-
-            {/* main button */}
-            <button className="relative px-6 py-3 bg-white text-black border border-black rounded-md uppercase font-bold flex gap-2 items-center">
+          <motion.div variants={item} className="relative">
+            <HairButton
+              borderEnable
+              color="secondary"
+              bgColor="white"
+              shadowEnable
+              fontFamily="norwester"
+              fontSize="normal"
+              className="flex flex-row items-center gap-1 uppercase"
+            >
+              {" "}
               <span className="text-xl">Book Now</span>
               <LuArrowUpRight size={20} />
-            </button>
+            </HairButton>
           </motion.div>
         </motion.div>
 
@@ -151,9 +185,15 @@ function HeroSection() {
                     variants={item}
                     className="absolute sm:top-0 -top-6 sm:-right-[110px] -right-[40px] flex flex-col items-center"
                   >
-                    <span className="uppercase sm:text-2xl text-md font-semibold">
+                    <HairText
+                      as="span"
+                      className="uppercase sm:text-2xl text-md"
+                      fontFamily="inter"
+                      fontWeight="bold"
+                    >
                       Fue
-                    </span>
+                    </HairText>
+
                     <img
                       className="mt-1 sm:w-[70px] w-[40px] h-auto"
                       src="./assets/images/hero/fue-arrow.png"
@@ -166,9 +206,14 @@ function HeroSection() {
                     variants={item}
                     className="absolute sm:-right-[120px] -right-[90px] sm:bottom-16 bottom-4 flex flex-row-reverse gap-2 items-end"
                   >
-                    <span className="uppercase sm:text-2xl text-md font-semibold">
+                    <HairText
+                      as="span"
+                      className="uppercase sm:text-2xl text-md"
+                      fontFamily="inter"
+                      fontWeight="bold"
+                    >
                       Beard
-                    </span>
+                    </HairText>
                     <img
                       className="sm:w-[100px] w-[70px] h-auto"
                       src="./assets/images/hero/beard-arrow.png"
@@ -181,9 +226,15 @@ function HeroSection() {
                     variants={item}
                     className="absolute sm:-left-[60px] -left-[60px] sm:top-8 top-2 flex gap-2 items-end"
                   >
-                    <span className="uppercase sm:text-2xl text-md font-semibold">
+                    <HairText
+                      as="span"
+                      className="uppercase sm:text-2xl text-md"
+                      fontFamily="inter"
+                      fontWeight="bold"
+                    >
                       Fut
-                    </span>
+                    </HairText>
+
                     <img
                       className="sm:w-[40px] w-[30px] h-auto"
                       src="./assets/images/hero/fut-arrow.png"
@@ -196,9 +247,15 @@ function HeroSection() {
                     variants={item}
                     className="absolute sm:-left-[110px] -left-[65px] sm:top-[90px] top-[35px] flex flex-col-reverse gap-1 sm:gap-2 items-end"
                   >
-                    <span className="uppercase sm:text-2xl text-md font-semibold">
+                    <HairText
+                      as="span"
+                      className="uppercase sm:text-2xl text-md"
+                      fontFamily="inter"
+                      fontWeight="bold"
+                    >
                       Eyebrow
-                    </span>
+                    </HairText>
+
                     <img
                       className="sm:w-[60px] w-[40px] h-auto"
                       src="./assets/images/hero/eyebrow-arrow.png"
@@ -211,20 +268,6 @@ function HeroSection() {
           </motion.div>
         </motion.div>
       </div>
-
-      {/* hero footer */}
-      {/* <div className="h-[70px] sm:h-[110px] bg-secondary flex items-center justify-center ">
-        <div className="flex flex-row items-center justify-between w-full custom-container">
-          {brandList.map((item, index) => {
-            return (
-              <div className="" key={index}>
-                <img src={item} className="w-[90%] h-auto"></img>
-              </div>
-            );
-          })}
-        </div>
-      </div>
-       */}
 
       {/* hero footer */}
       <div className="h-[70px] sm:h-[110px] bg-secondary flex items-center justify-center">
