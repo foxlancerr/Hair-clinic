@@ -1,6 +1,7 @@
-// @import "./base/reset.scss";
-// @import "./base/layout.scss";
 @import "./tailwand.css";
+@import "./base/reset.scss";
+@import "./base/layout.scss";
+@import "./base/fonts.scss";
 
 .scrollbar-hide::-webkit-scrollbar {
   display: none;

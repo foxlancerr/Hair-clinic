@@ -1,8 +1,13 @@
 @import "tailwindcss";
 
+
+
 @theme {
   --color-primary: #f7e135;
   --color-secondary: #000000;
+  --font-opensaucesans: 'opensauce' ;
+  --font-texgyrebonum: 'texgyrebonum'; 
+  --font-norwester: 'norwester' ;
 }
 
 @layer components {

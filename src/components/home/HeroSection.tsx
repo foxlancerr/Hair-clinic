@@ -88,7 +88,7 @@ function HeroSection() {
             Clinic
           </motion.h1>
 
-          <motion.p variants={item}>Winner of Multiple Awards 🏆🏆🏆</motion.p>
+          <motion.p variants={item} className="">Winner of Multiple Awards 🏆🏆🏆</motion.p>
 
           <motion.div variants={item} className="relative inline-block mt-4">
             {/* shadow box */}
