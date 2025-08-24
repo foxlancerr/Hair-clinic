@@ -1,6 +1,12 @@
-// @import "./base/reset.scss";
-// @import "./base/layout.scss";
 @import "./tailwand.css";
+
+// swipper js
+@import "swiper/css";
+@import "swiper/css/navigation";
+@import "swiper/css/pagination";
+@import "./base/reset.scss";
+@import "./base/layout.scss";
+@import "./base/fonts.scss";
 
 .scrollbar-hide::-webkit-scrollbar {
   display: none;
