@@ -2,6 +2,8 @@ import { RiMenu3Fill } from "react-icons/ri";
 import { LuArrowUpRight } from "react-icons/lu";
 import { motion, type Variants } from "framer-motion";
 import { useState, type MouseEvent } from "react";
+import HairButton from "../base/HairButton";
+import HairText from "../base/HairText";
 
 type NavItem = {
   name: string;
@@ -117,9 +119,13 @@ function Header() {
               initial="initial"
               animate={hoveredItem === item.id ? "hover" : "initial"}
             >
-              {/* Text */}
-              <motion.span className="relative z-10 select-none transition-colors duration-200">
-                {item.name}
+              <motion.span>
+                <HairText 
+                as="span"
+                fontSize="normal"
+                className="relative z-10 select-none transition-colors duration-200">
+                  {item.name}
+                </HairText>
               </motion.span>
 
               {/* Magnetic circle */}
@@ -159,41 +165,19 @@ function Header() {
         </ul>
 
         {/* Button */}
-        <motion.button
-          className="bg-black rounded-lg text-white px-6 py-4 flex gap-3 items-center ml-auto relative overflow-hidden shadow-lg z-10"
-          whileHover={{
-            scale: 1.05,
-            boxShadow: "0 10px 25px rgba(0, 0, 0, 0.2)",
-            transition: { duration: 0.3 },
-          }}
-          whileTap={{ scale: 0.98, transition: { duration: 0.1 } }}
-        >
-          {/* Overlay */}
-          <motion.div
-            className="absolute inset-0 bg-white opacity-0"
-            whileHover={{ opacity: 0.1, transition: { duration: 0.3 } }}
-          />
-          {/* Text */}
-          <motion.span
-            className="uppercase relative z-10 font-semibold tracking-wide"
-            initial={{ x: 0 }}
-            whileHover={{ x: -2, transition: { duration: 0.3 } }}
+        <div className="relative ml-auto">
+          <HairButton
+            fontFamily="norwester"
+            fontSize="normal"
+            bgColor="black"
+            color="white"
+            rounded="lg"
+            className="rounded-lg px-6 py-4 flex gap-3 items-center relative shadow-lg z-10 ml-auto"
           >
-            Book Now
-          </motion.span>
-          {/* Arrow */}
-          <motion.span
-            className="relative z-10"
-            initial={{ rotate: 0, scale: 1 }}
-            whileHover={{
-              rotate: 45,
-              scale: 1.2,
-              transition: { duration: 0.4, ease: "easeInOut" },
-            }}
-          >
-            <LuArrowUpRight size={24} />
-          </motion.span>
-        </motion.button>
+            <span className="text-xl">Book Now</span>
+            <LuArrowUpRight size={20} />
+          </HairButton>
+        </div>
 
         {/* yellow background color */}
         <div className="w-[53.2%] h-full absolute top-0 right-0 bg-yellow-400" />

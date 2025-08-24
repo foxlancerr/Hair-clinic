@@ -1,0 +1,166 @@
+/* ==============================
+   Norwester
+   ============================== */
+@font-face {
+  font-family: "Norwester";
+  src: url("/assets/fonts/norwester/norwester.otf") format("opentype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* ==============================
+   Tex Gyre Bonum (Regular, Bold, Italic, BoldItalic)
+   ============================== */
+@font-face {
+  font-family: "TexGyreBonum";
+  src: url("/assets/fonts/tex-gyre-bonum/texgyrebonum-regular.otf")
+    format("opentype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "TexGyreBonum";
+  src: url("/assets/fonts/tex-gyre-bonum/texgyrebonum-bold.otf")
+    format("opentype");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "TexGyreBonum";
+  src: url("/assets/fonts/tex-gyre-bonum/texgyrebonum-italic.otf")
+    format("opentype");
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "TexGyreBonum";
+  src: url("/assets/fonts/tex-gyre-bonum/texgyrebonum-bolditalic.otf")
+    format("opentype");
+  font-weight: 700;
+  font-style: italic;
+  font-display: swap;
+}
+
+/* ==============================
+   Open Sauce Sans (Full Family)
+   ============================== */
+
+/* Thin / ExtraLight not in your set, so starting from Light (300) */
+@font-face {
+  font-family: "OpenSauceSans";
+  src: url("/assets/fonts/open-sauce/OpenSauceSans-Light.ttf") format("truetype");
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "OpenSauceSans";
+  src: url("/assets/fonts/open-sauce/OpenSauceSans-LightItalic.ttf") format("truetype");
+  font-weight: 300;
+  font-style: italic;
+  font-display: swap;
+}
+
+/* Regular (400) */
+@font-face {
+  font-family: "OpenSauceSans";
+  src: url("/assets/fonts/open-sauce/OpenSauceSans-Regular.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "OpenSauceSans";
+  src: url("/assets/fonts/open-sauce/OpenSauceSans-Italic.ttf") format("truetype");
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+
+/* Medium (500) */
+@font-face {
+  font-family: "OpenSauceSans";
+  src: url("/assets/fonts/open-sauce/OpenSauceSans-Medium.ttf") format("truetype");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "OpenSauceSans";
+  src: url("/assets/fonts/open-sauce/OpenSauceSans-MediumItalic.ttf") format("truetype");
+  font-weight: 500;
+  font-style: italic;
+  font-display: swap;
+}
+
+/* SemiBold (600) */
+@font-face {
+  font-family: "OpenSauceSans";
+  src: url("/assets/fonts/open-sauce/OpenSauceSans-SemiBold.ttf") format("truetype");
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "OpenSauceSans";
+  src: url("/assets/fonts/open-sauce/OpenSauceSans-SemiBoldItalic.ttf") format("truetype");
+  font-weight: 600;
+  font-style: italic;
+  font-display: swap;
+}
+
+/* Bold (700) */
+@font-face {
+  font-family: "OpenSauceSans";
+  src: url("/assets/fonts/open-sauce/OpenSauceSans-Bold.ttf") format("truetype");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "OpenSauceSans";
+  src: url("/assets/fonts/open-sauce/OpenSauceSans-BoldItalic.ttf") format("truetype");
+  font-weight: 700;
+  font-style: italic;
+  font-display: swap;
+}
+
+/* ExtraBold (800) */
+@font-face {
+  font-family: "OpenSauceSans";
+  src: url("/assets/fonts/open-sauce/OpenSauceSans-ExtraBold.ttf") format("truetype");
+  font-weight: 800;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "OpenSauceSans";
+  src: url("/assets/fonts/open-sauce/OpenSauceSans-ExtraBoldItalic.ttf") format("truetype");
+  font-weight: 800;
+  font-style: italic;
+  font-display: swap;
+}
+
+/* Black (900) */
+@font-face {
+  font-family: "OpenSauceSans";
+  src: url("/assets/fonts/open-sauce/OpenSauceSans-Black.ttf") format("truetype");
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "OpenSauceSans";
+  src: url("/assets/fonts/open-sauce/OpenSauceSans-BlackItalic.ttf") format("truetype");
+  font-weight: 900;
+  font-style: italic;
+  font-display: swap;
+}
+
