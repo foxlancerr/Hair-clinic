@@ -7,6 +7,8 @@ type FontSize = "small" | "normal" | "medium" | "large" | "xlarge";
 type FontWeight = "light" | "normal" | "medium" | "semibold" | "bold";
 type ThemeColor = "primary" | "secondary" | "white" | "black" | "transparent";
 type RoundedSize = "sm" | "md" | "lg" | "xl" | "2xl" | "full";
+type BorderSize = "b1" | "b2" | "b3" | "b4" | "none";
+
 
 // Props
 interface HairButtonProps
@@ -24,6 +26,7 @@ interface HairButtonProps
   className?: string;
   children: React.ReactNode;
   borderEnable?: boolean;
+  borderSize?:BorderSize
 }
 
 // Size classes
@@ -78,6 +81,8 @@ const bgClasses: Record<ThemeColor, string> = {
   transparent: "bg-transparent",
 };
 
+
+
 // Rounded
 const roundedClasses: Record<RoundedSize, string> = {
   sm: "rounded-sm",
@@ -86,6 +91,16 @@ const roundedClasses: Record<RoundedSize, string> = {
   xl: "rounded-xl",
   "2xl": "rounded-2xl",
   full: "rounded-full",
+};
+
+
+// Size classes
+const borderSizeClasses: Record<BorderSize, string> = {
+  b1: "border-1",
+  b2: "border-2",
+  b3: "border-3",
+  b4: "border-4",
+  none: "border-none",
 };
 
 function HairButton({
@@ -102,6 +117,7 @@ function HairButton({
   className,
   children,
   borderEnable = false,
+   borderSize = "b1",
   ...props
 }: HairButtonProps) {
   return (
@@ -132,8 +148,11 @@ function HairButton({
           fontWeightClasses[fontWeight],
           buttonColorClasses[color],
           buttonBgColorClasses[bgColor],
+          borderSizeClasses[borderSize],
           className
+
         )}
+        
         {...props}
       >
         {children}

@@ -1,5 +1,5 @@
 import { motion, type Variants } from "framer-motion";
-import BoxShadowNode from "../../base/BoxShadowNode";
+import BoxShadowNode from "../../base/HairShadowBox";
 import HairButton from "../../base/HairButton";
 import HairText from "../../base/HairText";
 
@@ -101,9 +101,8 @@ function SergionCard() {
           >
             <motion.div variants={parentHoverVariants}>
               <BoxShadowNode
-                as="div"
                 bgColor="white"
-                borderColor="secondary"
+      
                 shadowColor="secondary"
                 rounded="2xl"
               >
@@ -166,9 +165,7 @@ function SergionCard() {
           >
             <motion.div variants={parentHoverVariants}>
               <BoxShadowNode
-                as="button"
                 bgColor="white"
-                borderColor="secondary"
                 shadowColor="secondary"
                 rounded="2xl"
               >
