@@ -85,6 +85,7 @@ function HeroSection() {
             variants={item} // ✅ no `as any`
           >
             <HairButton
+            borderSize="none"
               fontFamily="norwester"
               fontSize="normal"
               color="primary"
