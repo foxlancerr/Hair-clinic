@@ -101,8 +101,9 @@ function SergionCard() {
           >
             <motion.div variants={parentHoverVariants}>
               <BoxShadowNode
+                borderSize="b1"
                 bgColor="white"
-      
+                color="black"
                 shadowColor="secondary"
                 rounded="2xl"
               >
@@ -168,9 +169,12 @@ function SergionCard() {
                 bgColor="white"
                 shadowColor="secondary"
                 rounded="2xl"
+                borderEnable
+                borderSize="b1"
               >
                 <div className="flex flex-col gap-3 p-4 text-center max-w-[380px] min-h-[230px] relative">
                   <HairButton
+                  borderSize="none"
                     fontFamily="norwester"
                     fontSize="large"
                     color="primary"

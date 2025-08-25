@@ -124,7 +124,7 @@ function HairShadowBox({
   shadowHeight = "100%", // ✅ default full height
   offsetX = "5px",
   offsetY = "5px",
-  shadowPosition = {},
+  
   ...props
 }: HairButtonProps) {
   return (
@@ -135,16 +135,12 @@ function HairShadowBox({
           className={clsx(
             "absolute",
             bgClasses[shadowColor],
-            roundedClasses[rounded]
+            roundedClasses[rounded],
           )}
           style={{
             width: shadowWidth === "auto" ? "100%" : shadowWidth,
             height: shadowHeight === "auto" ? "100%" : shadowHeight,
             transform: `translate(${offsetX}, ${offsetY})`,
-            top: shadowPosition.top ?? "0",
-            left: shadowPosition.left ?? "0",
-            right: shadowPosition.right ?? "auto",
-            bottom: shadowPosition.bottom ?? "auto",
           }}
         ></div>
       )}
