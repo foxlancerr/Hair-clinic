@@ -45,7 +45,7 @@ const SliderContentList: SliderContent[] = [
   {
     key: 102,
     title: "Non-Surgecial Treatments",
-    coverImage: "./assets/images/slider/character2.png",
+    coverImage: "./assets/images/slider/character3.png",
     learnMoreLink: "#",
     listDescription: [
       "Natural-Looking Results",
@@ -56,7 +56,7 @@ const SliderContentList: SliderContent[] = [
   {
     key: 103,
     title: "Forhead Reduction Transplant",
-    coverImage: "./assets/images/slider/character3.png",
+    coverImage: "./assets/images/slider/character2.png",
     learnMoreLink: "#",
     listDescription: [
       "Permanent Solution",
@@ -74,7 +74,6 @@ const SliderContentList: SliderContent[] = [
     listDescription: [
       "Permanent Solution",
       "Natural-Looking Results",
-
       "Boost Confidence",
       "Expert Care",
     ],
@@ -119,7 +118,7 @@ const Slider = () => {
           setShow(false);
         }} // track
       >
-        {SliderContentList.map((item) => (
+        {SliderContentList.map((item, index: number) => (
           <SwiperSlide key={item.key}>
             <div className="w-full flex flex-col gap-6 relative">
               <div className="flex flex-row justify-between items-center">
@@ -132,7 +131,7 @@ const Slider = () => {
                   {item.title}
                 </HairTitle>
                 {/* Controls */}
-                <div className="hidden sm:flex gap-4 mb-2">
+                <div className="hidden sm:flex gap-4 mb-2 mr-2">
                   <HairButton
                     onClick={handleSliderPrev}
                     shadowEnable
@@ -162,19 +161,43 @@ const Slider = () => {
               <HairShadowBox
                 bgColor="primary"
                 borderEnable
-                borderSize="b2"
+                borderSize={device === SCREEN_TYPE.MOBILE ? "b1" : "b4"}
                 rounded="4xl"
-                className="w-full h-[340px] sm:h-[600px] bg-cover bg-center bg-no-repeat p-5 relative flex flex-col justify-between"
+                className="w-full h-[340px] sm:h-[600px] bg-cover bg-center bg-no-repeat p-5 relative flex flex-col justify-between sm:justify-end"
                 // @ts-ignore
                 style={{
-                  backgroundImage: `url("${item.coverImage}")`,
+                  backgroundImage: `url("${item.coverImage}"), url("./assets/images/slider/grid.png")`,
+                  backgroundPosition: "center, top",
+                  backgroundRepeat: "no-repeat, repeat",
+                  backgroundSize: "cover, contain",
                 }}
               >
-                <img
-                  src="./assets/images/slogan/fixhair-yellow.png"
-                  alt=" Brand logo"
-                  className="ml-auto  h-[100px]"
-                />
+                {device === SCREEN_TYPE.MOBILE ? (
+                  <div className="bg-primary px-2 py-2 top-[10px] right-[10px] ml-auto">
+                    <img
+                      src="./assets/images/logo.svg"
+                      alt=" Brand logo"
+                      className=""
+                    />
+                  </div>
+                ) : (
+                  <img
+                    src="./assets/images/logo.svg"
+                    alt=" Brand logo"
+                    className="absolute ml-auto h-[50px]"
+                    style={
+                      index === 0 || index === 2
+                        ? {
+                            top: "30px",
+                            left: "30px",
+                          }
+                        : {
+                            bottom: "50px",
+                            right: "30px",
+                          }
+                    }
+                  />
+                )}
 
                 {/* dynamics contents List */}
                 {device === SCREEN_TYPE.MOBILE ? (
@@ -185,13 +208,16 @@ const Slider = () => {
                       show ? { opacity: 1, y: 0 } : { opacity: 0, y: 10 }
                     }
                     transition={{ duration: 0.4, ease: "easeInOut" }}
+                    className=""
                   >
                     <HairShadowBox
-                      className="w-[300px] rounded-none"
+                      className="w-[200px] rounded-none"
                       shadowEnable
-                      shadowColor="black"
+                      shadowColor={
+                        index == 0 || index == 4 ? "primary" : "black"
+                      }
                       shadowHeight="80%"
-                      shadowWidth="290px"
+                      shadowWidth="190px"
                       offsetX="-10px"
                       offsetY="-10px"
                       onClick={() => setShow(!show)} // 👈 toggle on mobile tap
@@ -207,8 +233,8 @@ const Slider = () => {
                         >
                           <HairText
                             fontFamily="texgyrebonum"
-                            fontSize="normal"
-                            fontWeight="bold"
+                            fontSize="small"
+                            fontWeight="semibold"
                           >
                             {list}
                           </HairText>
@@ -218,12 +244,29 @@ const Slider = () => {
                   </motion.div>
                 ) : (
                   // --- DESKTOP: Always visible ---
-                  <div>
+                  <div
+                    className="absolute flex gap-2 flex-col items-start"
+                    style={
+                      index === 0 || index === 2
+                        ? {
+                            top: "40px",
+                            right: "100px",
+                          }
+                        : index === 3
+                        ? {
+                            top: "40px",
+                            left: "40px",
+                          }
+                        : {}
+                    }
+                  >
                     <HairShadowBox
                       className="w-[300px] rounded-none"
                       shadowEnable
-                      shadowColor="black"
-                      shadowHeight="80%"
+                      shadowColor={
+                        index == 0 || index == 2 ? "primary" : "black"
+                      }
+                      shadowHeight="90%"
                       shadowWidth="290px"
                       offsetX="-10px"
                       offsetY="-10px"
@@ -267,7 +310,7 @@ const Slider = () => {
                 )}
 
                 {/* Dynamic indicator  for mobile*/}
-                <div className="flex flex-row gap-4 sm:gap-8 justify-between items-center">
+                <div className="flex flex-row gap-4 sm:gap-8 items-center">
                   {SliderContentList.map((_, dotIndex) => (
                     <div
                       key={dotIndex}

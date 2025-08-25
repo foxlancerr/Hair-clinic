@@ -7,6 +7,7 @@ export default {
       colors: {
         primary: "#F7E135", // Yellow
         secondary: "#000000", // Black
+        grayy: "#434343", // Black
       },
       fontfamily: {
         opensauce: ["OpenSauceSans", "san-serif"],
